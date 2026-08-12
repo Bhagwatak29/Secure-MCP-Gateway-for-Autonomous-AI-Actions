@@ -1,0 +1,42 @@
+{
+  "manifest_version": "0.4",
+  "name": "github-issues-mcp",
+  "version": "1.0.1",
+  "description": "GitHub Issues MCP server with confirmation-gated writes and metrics tracking",
+  "author": {
+    "name": "Bhagwatak29"
+  },
+  "server": {
+    "type": "uv",
+    "entry_point": "server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": ["run", "--with", "mcp", "mcp", "run", "${__dirname}/server.py"],
+      "env": {
+        "GITHUB_TOKEN": "${user_config.github_token}",
+        "ALLOWED_REPOS": "${user_config.allowed_repos}"
+      }
+    }
+  },
+  "user_config": {
+    "github_token": {
+      "type": "string",
+      "title": "GitHub Token",
+      "description": "Fine-grained personal access token with Issues read/write permission",
+      "sensitive": true,
+      "required": true
+    },
+    "allowed_repos": {
+      "type": "string",
+      "title": "Allowed Repos",
+      "description": "owner/repo to restrict this server to, e.g. Bhagwatak29/mcp-test-repo",
+      "required": false
+    }
+  },
+  "compatibility": {
+    "platforms": ["win32"],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  }
+}

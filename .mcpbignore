@@ -1,0 +1,4 @@
+venv/
+.env
+metrics.db
+__pycache__/

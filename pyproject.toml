@@ -1,0 +1,11 @@
+[project]
+name = "github-issues-mcp"
+version = "0.1.0"
+description = "MCP server for GitHub Issues with confirmation-gated writes"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.27,<2",
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+    "pydantic>=2.7",
+]
